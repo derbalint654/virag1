@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Egyedi Csokrok — Zsenília Virágok</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<!-- ══ NAV ══ -->
+<nav>
+  <a class="nav-logo" href="#">🌸 Egyedi csokrok</a>
+  <ul class="nav-links">
+    <li><a href="#shop">Bolt</a></li>
+    <li><a href="#bouquets">Csokrok</a></li>
+    <li><a href="#custom">Egyedi Rendelés</a></li>
+    <li><a href="#reviews">Visszajelzések</a></li>
+  </ul>
+  <button class="nav-cart" onclick="openCart()">
+    🛒 Kosár <span class="cart-count" id="cartCount">0</span>
+  </button>
+</nav>
+
+<!-- ══ HERO ══ -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <span class="deco-flower">🌺</span>
+  <span class="deco-flower">🌼</span>
+  <span class="deco-flower">🌸</span>
+  <span class="deco-flower">🌻</span>
+  <span class="deco-flower">💐</span>
+  <div class="hero-inner">
+    <div class="hero-badge">✨ Kézzel és Szeretettel Készitett</div>
+    <h1>Virágok amik<br/><em>örökké tartanak</em></h1>
+    <p>Gyönyörű, csokrok és egyedi virágok, amelyek teljes egészében zsenílliából készültek. Minden darab egyedi, színes és kézzel készült — kifejezetten neked.</p>
+    <div class="hero-btns">
+      <a href="#shop" class="btn-primary">Vásárolj Most  🌸</a>
+      <a href="#custom" class="btn-outline">Egyedi Rendelés</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PERKS ══ -->
+<div class="perks">
+  <div class="perk">🎨 100% Kézzel Készitett</div>
+  <div class="perk">✉️ Ajandék Csomagolás Elérhető</div>
+  <div class="perk">🌍 Worldwide Shipping</div>
+  <div class="perk">♻️ Hosszantartó &amp; Allergia-mentes</div>
+</div>
+
+<!-- ══ SHOP ══ -->
+<section id="shop">
+  <div class="shop-header">
+    <div class="section-label">Egy szál virágok</div>
+    <h2 class="section-title">Válaszd ki a sajátodat </h2>
+    <p class="section-sub">Bökj rá bármelyik virágra, hogy lásd nagyban. Minden egyes virág kézzel lett csinálva!</p>
+  </div>
+  <div class="filter-pills">
+    <button class="pill active" onclick="filterProducts('all', this)">Összes</button>
+    <button class="pill" onclick="filterProducts('rose', this)">Rózsák 🌹</button>
+    <button class="pill" onclick="filterProducts('daisy', this)">Százszorszépek 🌼</button>
+    <button class="pill" onclick="filterProducts('tulip', this)">Tulipánok 🌷</button>
+    <button class="pill" onclick="filterProducts('sunflower', this)">Napraforgók 🌻</button>
+  </div>
+  <div class="products-grid" id="productsGrid"></div>
+</section>
+
+<!-- ══ BOUQUETS ══ -->
+<section id="bouquets">
+  <div class="bouquets-inner">
+    <div class="section-label">Arrangements</div>
+    <h2 class="section-title">Összeálitott Csokrok</h2>
+    <p class="section-sub">Bökj bármelyik virágra, hogy lásd a teljes részleteket. Megcsinálva-készen gyönyörűen becsomagolva.</p>
+    <div class="bouquet-grid" id="bouquetGrid"></div>
+  </div>
+</section>
+
+<!-- ══ HOW IT WORKS ══ -->
+<section id="how">
+  <div class="how-inner">
+    <div class="section-label">A Folyamat</div>
+    <h2 class="section-title">Hogyan működik?</h2>
+    <p class="section-sub" style="margin:0 auto">A rendelésedtől az ajtóig — egyszerű, személyes, tele törödéssel.</p>
+    <div class="steps">
+      <div class="step"><div class="step-num">1</div><div class="step-icon">🛒</div><h4>Keress &amp; Válasz</h4><p>Válasz a megcsinált virágokból és csokrokból vagy válasz teljesen egyedit.</p></div>
+      <div class="step"><div class="step-num">2</div><div class="step-icon">🎨</div><h4>Neki Állunk Megcsináni</h4><p>Az összes rendelés egyedileg kézzel van csinálva. Csavarva, megformálva, és törödéssel lett csinálva.</p></div>
+      <div class="step"><div class="step-num">3</div><div class="step-icon">📦</div><h4>Szeretettel Becsomagolva</h4><p>Gyönyörűen becsomagolva, készen áll le nyűgözni — Tökéletes ajandék!</p></div>
+      <div class="step"><div class="step-num">4</div><div class="step-icon">🚚</div><h4>Gyors Kiszállitás</h4><p>Világszerte Kiszállitás. Nyomonkövetési információ egyenesen elküldve neked.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CUSTOM ORDER ══ -->
+<section id="custom">
+  <div class="custom-inner">
+    <div class="section-label">Csak neked csinálva</div>
+    <h2 class="section-title">Egyedi Rendelés</h2>
+    <p class="section-sub" style="margin:0 auto">Mond el a számodra tökéletes csokrot és mi megvalósítjuk! Az összes mező kitöltése kötelező.</p>
+
+    <!-- The form -->
+    <div class="custom-form" id="customForm">
+      <div class="form-row">
+        <div class="form-group">
+          <label>A neved <span style="color:var(--rose-d)">*</span></label>
+          <input id="customName" type="text" placeholder="Kovács István"/>
+        </div>
+        <div class="form-group">
+          <label>Email címed <span style="color:var(--rose-d)">*</span></label>
+          <input id="customEmail" type="email" placeholder="kovacsistvan@example.com"/>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Rendelés fajta <span style="color:var(--rose-d)">*</span></label>
+          <select id="customType">
+            <option value="">— Kérlek válaszd ki —</option>
+            <option>Egy szál virág </option>
+            <option>Mini csokor (5–7 szál virág)</option>
+            <option>Közepes csokor (10–12 szál virág)</option>
+            <option>Nagy csokor  (15+ szál virág)</option>
+            <option>Egyébb</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Alkalom</label>
+          <select id="customOccasion">
+            <option>Szülinap 🎂</option>
+            <option>Évforduló💑</option>
+            <option>Esküvő 💍</option>
+            <option>Csak mert🌸</option>
+            <option>Otthoni dekoráció 🏡</option>
+            <option>Egyébb</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group form-full">
+          <label>Preferált szín/színek <small style="font-weight:400;color:#9a7060">(Bökj rá a kiválasztáshoz)</small></label>
+          <div class="color-picker-row">
+            <div class="color-pick" style="background:#f4a7b9" title="Pink"      onclick="toggleColor(this)"></div>
+            <div class="color-pick" style="background:#e07a95" title="Deep Rose" onclick="toggleColor(this)"></div>
+            <div class="color-pick" style="background:#fdd5b1" title="Peach"     onclick="toggleColor(this)"></div>
+            <div class="color-pick" style="background:#b5e2d8" title="Mint"      onclick="toggleColor(this)"></div>
+            <div class="color-pick" style="background:#d6b8e8" title="Lavender"  onclick="toggleColor(this)"></div>
+            <div class="color-pick" style="background:#fce570" title="Yellow"    onclick="toggleColor(this)"></div>
+            <div class="color-pick" style="background:#a8d8ea" title="Blue"      onclick="toggleColor(this)"></div>
+            <div class="color-pick" style="background:#f9a26c" title="Orange"    onclick="toggleColor(this)"></div>
+            <div class="color-pick" style="background:#c8e6a0" title="Green"     onclick="toggleColor(this)"></div>
+            <div class="color-pick" style="background:#fff"    title="White"     onclick="toggleColor(this)"></div>
+            <div class="color-pick" style="background:#444"    title="Black"     onclick="toggleColor(this)"></div>
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group form-full">
+          <label>Ird le a számodra tökéletes csokrot <span style="color:var(--rose-d)">*</span></label>
+          <textarea id="customMessage" placeholder="Mondj el nekünk bármit — kedvenc virágok, egy szín skála, egy specifikus stílus, egy személyes üzenet, hogy kinek szól…" style="min-height:110px"></textarea>
+        </div>
+      </div>
+      <button class="submit-btn" id="customSubmitBtn" onclick="submitCustomOrder()">Küld el az egyéni rendelésed 🌸</button>
+    </div>
+
+    <!-- Success message (hidden until sent) -->
+    <div class="custom-form custom-success" id="customSuccess">
+      <div class="custom-success-icon">🌸</div>
+      <h3>Egyedi rendelése elküldve!</h3>
+      <p>Köszönjük kedves, <strong id="customSuccessName"></strong>! Megkaptuk az egyedi rendelését és 24 órán belül felvesszük önnel a kapcsolatott, hogy megbeszéljük a csokrát.</p>
+      <button class="custom-reset-btn" onclick="resetCustomForm()">Egy másik egyedi rendelés küldése</button>
+    </div>
+  </div>
+</section>
+
+<!-- ══ REVIEWS ══ -->
+<section id="reviews">
+  <div class="reviews-inner">
+    <div class="section-label">Boldog Vásárlok</div>
+    <h2 class="section-title">Az emberek mit mondanak</h2>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p class="review-text">"Rendeltem egy egyedi csokrot anyukám születésnapjára, és örömébe sirt. A színek tökéletesek voltak, és nagyon szépen nézett ki!. </p>
+        <div class="reviewer"><div class="reviewer-avatar">👩</div><div><div class="reviewer-name">Kiss A.</div><div class="reviewer-since">Visszatérő vásárlo 2026 óta</div></div></div>
+      </div>
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p class="review-text">Nagyon aranyosan néznek ki. Megvettem egy napraforgó csokrot az íróasztalomra, és minden egyes nap azt dicsérik a munkahelyemen, és ráadásul semmit nem kell velük foglalkozni!</p>
+        <div class="reviewer"><div class="reviewer-avatar">👩</div><div><div class="reviewer-name">Kat L.</div><div class="reviewer-since">Vásárlo 2026 óta</div></div></div>
+      </div>
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p class="review-text">Gyorsan kiszállították, gyönyörűen csomagolva. Az esküvői egyedi asztaldíszeim voltak, és majdnem minden második vendég azt kérdezte, hogy honnan vannal.</p>
+        <div class="reviewer"><div class="reviewer-avatar">🧔</div><div><div class="reviewer-name">Marco R.</div><div class="reviewer-since">Vásárlo 2026 óta</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="logo">🌸 Egyedi csokrok</div>
+        <p>Kézzel csinált zseníliából egyedi csokrok . Virágok amik soha nem hallnak meg.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Bolt</h5>
+        <ul><li><a href="#shop">Egy szál virágok</a></li><li><a href="#bouquets">Csokrok</a></li><li><a href="#custom">Egyedi csokrok</a></li></ul>
+      </div>
+      <div class="footer-col">
+        <h5>Info</h5>
+        <ul><li><a href="#">Kiszállitás &amp; Csere</a></li><li><a href="#">FAQ</a></li><li><a href="#">Vedd fel velünk a kapcsolatot </a></li><li><a href="#">Privacy Policy</a></li></ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Egyedi csokrok.</p>
+      <div class="socials">
+        <a class="social-btn" href="#">📸</a>
+        <a class="social-btn" href="#">🎵</a>
+        <a class="social-btn" href="#">📘</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ══ TOAST ══ -->
+<div class="toast" id="toast"></div>
+
+<!-- ══════════════════════════════════════
+     PRODUCT DETAIL MODAL
+══════════════════════════════════════ -->
+<div class="product-modal-overlay" id="productModal">
+  <div class="product-modal">
+    <div class="modal-img" id="modalImg">
+      <span id="modalEmoji"></span>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-meta" id="modalMeta"></div>
+      <div class="modal-name" id="modalName"></div>
+      <div class="modal-desc" id="modalDesc"></div>
+      <div class="modal-price-row">
+        <span class="modal-price" id="modalPrice"></span>
+      </div>
+      <button class="modal-add-btn" id="modalAddBtn">Add hozzá a kosárhoz 🛒</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     CART DRAWER
+══════════════════════════════════════ -->
+<div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
+<div class="cart-drawer" id="cartDrawer">
+  <div class="cart-header">
+    <h2>🛒 Kosarad</h2>
+    <button class="cart-close-btn" onclick="closeCart()">✕</button>
+  </div>
+  <div class="cart-items" id="cartItems">
+    <div class="cart-empty">
+      <div class="cart-empty-icon">🛒</div>
+      <p>A kosarad üres</p>
+      <small>Adj hozzá pár virágot, hogy elkezdjük!</small>
+    </div>
+  </div>
+  <div class="cart-footer" id="cartFooter" style="display:none">
+    <div class="cart-total-row">
+      <span class="cart-total-label">Teljes összeg</span>
+      <span class="cart-total-amount" id="cartTotalAmt">€0.00</span>
+    </div>
+    <button class="checkout-btn" onclick="goToCheckout()">Tovább fizetéshez →</button>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     CHECKOUT MODAL  (5 steps)
+     1 Contact → 2 Delivery → 3 Payment → 4 Review → 5 Success
+══════════════════════════════════════ -->
+<div class="checkout-modal-overlay" id="checkoutModal">
+  <div class="checkout-modal">
+
+    <!-- Left: order summary -->
+    <div class="co-summary-panel">
+      <h3>Rendelés</h3>
+      <div id="coOrderSummary"></div>
+      <div class="co-logo">🌸 Egyedi csokrok</div>
+    </div>
+
+    <!-- Right: form steps -->
+    <div class="co-form-panel">
+      <div class="co-form-header">
+        <h2>Checkout</h2>
+        <button class="co-close-btn" onclick="closeCheckout()">✕</button>
+      </div>
+
+      <!-- Step dots  1 2 3 4 -->
+      <div class="co-steps">
+        <div class="co-step-dot current" title="Contact">1</div>
+        <div class="co-step-line"></div>
+        <div class="co-step-dot" title="Delivery">2</div>
+        <div class="co-step-line"></div>
+        <div class="co-step-dot" title="Payment">3</div>
+        <div class="co-step-line"></div>
+        <div class="co-step-dot" title="Review">4</div>
+      </div>
+
+      <!-- ── Step 1: Contact ── -->
+      <div class="co-step-panel active" id="coStep1">
+        <h4>Az adataid</h4>
+        <div class="co-form-row">
+          <div class="co-form-group full"><label>Teljes neved *</label><input id="coName" type="text" placeholder="Kovács István"/></div>
+        </div>
+        <div class="co-form-row">
+          <div class="co-form-group full"><label>Email cimed *</label><input id="coEmail" type="email" placeholder="kovacsistvan@gmail.com"/></div>
+        </div>
+        <div class="co-form-row">
+          <div class="co-form-group full"><label>Telefonszámod *</label><input id="coPhone" type="tel" placeholder="+36 30 234 4056"/></div>
+        </div>
+        <button class="co-next-btn" onclick="validateStep1()">Tovább a Kiszállitásra →</button>
+      </div>
+
+      <!-- ── Step 2: Delivery ── -->
+      <div class="co-step-panel" id="coStep2">
+        <h4>Kiszállitási adatok</h4>
+        <button class="co-back-btn" onclick="showCheckoutStep(1)">← Vissza</button>
+        <div class="co-form-row">
+          <div class="co-form-group full"><label>Kiszállitási cim *</label><input id="coAddress" type="text" placeholder="Rózsa utca 25"/></div>
+        </div>
+        <div class="co-form-row">
+          <div class="co-form-group"><label>City *</label><input id="coCity" type="text" placeholder="Budapest"/></div>
+          <div class="co-form-group"><label>Irányitoszám *</label><input id="coPostal" type="text" placeholder="1012"/></div>
+        </div>
+        <div class="co-form-row">
+          <div class="co-form-group full"><label>Ország*</label>
+            <select id="coCountry">
+              <option value="">Válasz ki egy országot…</option>
+              <option>Hungary</option><option>United Kingdom</option><option>Germany</option>
+              <option>France</option><option>Italy</option><option>Spain</option>
+              <option>Netherlands</option><option>United States</option><option>Canada</option>
+              <option>Australia</option><option>Other</option>
+            </select>
+          </div>
+        </div>
+        <div class="co-form-row">
+          <div class="co-form-group full"><label>Kiszállitási üzenet <small style="font-weight:400">(választható)</small></label><input type="text" placeholder="Hagyd az ajtónál, csenges, stb..."/></div>
+        </div>
+        <button class="co-next-btn" onclick="validateStep2()">Tovább a fizetéshez →</button>
+      </div>
+
+      <!-- ── Step 3: Payment ── -->
+      <div class="co-step-panel" id="coStep3">
+        <h4>Fizetési adatok</h4>
+        <button class="co-back-btn" onclick="showCheckoutStep(2)">← Vissza<button>
+
+        <!-- Live card preview -->
+        <div class="card-preview">
+          <div class="card-chip">▪️</div>
+          <div class="card-number-display" id="cardDisplayNum">•••• •••• •••• ••••</div>
+          <div class="card-bottom">
+            <div>
+              <div class="card-holder-label">kártyatartó</div>
+              <div class="card-holder-name" id="cardDisplayName">A NEVED</div>
+            </div>
+            <div>
+              <div class="card-exp-label">lejárat</div>
+              <div class="card-exp-val" id="cardDisplayExp">MM/YY</div>
+            </div>
+            <div class="card-type-badge" id="cardTypeIcon">💳</div>
+          </div>
+        </div>
+
+        <div class="payment-secure-note">🔒 A fizetési adataid, biztonságban vannak és titkositva.</div>
+
+        <div class="co-form-row">
+          <div class="co-form-group full">
+            <label>Kártya szám *</label>
+            <input id="coCardNum" type="text" placeholder="1234 5678 9012 3456" maxlength="19"
+              oninput="formatCardNum(this); document.getElementById('cardDisplayNum').textContent=this.value||'•••• •••• •••• ••••'; detectCard(this)"/>
+          </div>
+        </div>
+        <div class="co-form-row">
+          <div class="co-form-group full">
+            <label>Kártyán szereplő név *</label>
+            <input id="coCardName" type="text" placeholder="Kovács István"
+              oninput="document.getElementById('cardDisplayName').textContent=this.value.toUpperCase()||'YOUR NAME'"/>
+          </div>
+        </div>
+        <div class="co-row-half">
+          <div class="co-form-group">
+            <label>Lejárati dátum *</label>
+            <input id="coCardExp" type="text" placeholder="MM/YY" maxlength="5"
+              oninput="formatExpiry(this); document.getElementById('cardDisplayExp').textContent=this.value||'MM/YY'"/>
+          </div>
+          <div class="co-form-group">
+            <label>CVC *</label>
+            <input id="coCardCvc" type="text" placeholder="123" maxlength="4"/>
+          </div>
+        </div>
+
+        <button class="co-next-btn" onclick="validateStep3()"> →</button>
+      </div>
+
+      <!-- ── Step 4: Review ── -->
+      <div class="co-step-panel" id="coStep4">
+        <h4>Rendelés áttekintése &amp; Jováhagyás</h4>
+        <button class="co-back-btn" onclick="showCheckoutStep(3)">← vissza</button>
+        <div class="co-review-block">
+          <h5>Kontakt</h5>
+          <p id="coReviewName"></p>
+          <p id="coReviewEmail"></p>
+        </div>
+        <div class="co-review-block">
+          <h5>Kiszállitási cim</h5>
+          <p id="coReviewAddress"></p>
+        </div>
+        <div class="co-review-block">
+          <h5>Fizetés</h5>
+          <p id="coReviewCard"></p>
+        </div>
+        <div class="co-review-block">
+          <h5>Teljes összeg</h5>
+          <p id="coReviewTotal" style="font-size:1.3rem;font-weight:700;color:var(--rose-d)"></p>
+        </div>
+        <button class="co-place-btn" onclick="placeOrder()">🌸 rendelést leadni</button>
+      </div>
+
+      <!-- ── Step 5: Success ── -->
+      <div class="co-step-panel" id="coStep5">
+        <div class="co-success">
+          <div class="co-success-icon">🎉</div>
+          <h3>Rendelés leadva!</h3>
+          <p>Köszönjük szépen! Your handmade flowers are being crafted with love and will be on their way soon. You'll receive a confirmation email shortly. 🌸</p>
+          <button class="co-done-btn" onclick="closeCheckout()">Back to Shop</button>
+        </div>
+      </div>
+
+    </div><!-- /co-form-panel -->
+  </div><!-- /checkout-modal -->
+</div><!-- /checkout-modal-overlay -->
+
+<script src="script.js"></script>
+</body>
+</html>
