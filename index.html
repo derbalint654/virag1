@@ -18,9 +18,12 @@
     <li><a href="#custom">Egyedi Rendelés</a></li>
     <li><a href="#reviews">Visszajelzések</a></li>
   </ul>
-  <button class="nav-cart" onclick="openCart()">
-    🛒 Kosár <span class="cart-count" id="cartCount">0</span>
-  </button>
+  <div class="nav-right">
+    <button class="nav-auth-btn" id="authNavBtn" onclick="openAuth('login')">👤 Bejelentkezés</button>
+    <button class="nav-cart" onclick="openCart()">
+      🛒 Kosár <span class="cart-count" id="cartCount">0</span>
+    </button>
+  </div>
 </nav>
 
 <!-- ══ HERO ══ -->
@@ -233,8 +236,7 @@
 ══════════════════════════════════════ -->
 <div class="product-modal-overlay" id="productModal">
   <div class="product-modal">
-    <div class="modal-img" id="modalImg">
-      <span id="modalEmoji"></span>
+    <div class="modal-img" id="modalImgWrap">
       <button class="modal-close" onclick="closeModal()">✕</button>
     </div>
     <div class="modal-body">
@@ -439,6 +441,84 @@
     </div><!-- /co-form-panel -->
   </div><!-- /checkout-modal -->
 </div><!-- /checkout-modal-overlay -->
+
+
+<!-- ══════════════════════════════════════
+     AUTH MODAL (Login / Register)
+══════════════════════════════════════ -->
+<div class="auth-modal-overlay" id="authModal">
+  <div class="auth-modal">
+    <button class="auth-close" onclick="closeAuth()">✕</button>
+    <div class="auth-logo">🌸 Egyedi csokrok</div>
+
+    <!-- Tabs -->
+    <div class="auth-tabs">
+      <button class="auth-tab active" data-tab="login"    onclick="switchAuthTab('login')">Bejelentkezés</button>
+      <button class="auth-tab"        data-tab="register" onclick="switchAuthTab('register')">Regisztráció</button>
+    </div>
+
+    <!-- LOGIN -->
+    <div id="loginPanel" style="display:flex;flex-direction:column;gap:.9rem;">
+      <div class="auth-field">
+        <label>Email cím</label>
+        <input class="auth-input" id="loginEmail" type="email" placeholder="kovacsistvan@example.com"/>
+      </div>
+      <div class="auth-field">
+        <label>Jelszó</label>
+        <input class="auth-input" id="loginPass" type="password" placeholder="••••••••"/>
+      </div>
+      <p class="auth-error" id="loginError"></p>
+      <button class="auth-submit-btn" onclick="doLogin()">Bejelentkezés →</button>
+      <p class="auth-switch">Még nincs fiókod? <a onclick="switchAuthTab('register')">Regisztrálj itt!</a></p>
+    </div>
+
+    <!-- REGISTER -->
+    <div id="registerPanel" style="display:none;flex-direction:column;gap:.9rem;">
+      <div class="auth-field">
+        <label>Teljes neved</label>
+        <input class="auth-input" id="regName" type="text" placeholder="Kovács István"/>
+      </div>
+      <div class="auth-field">
+        <label>Email cím</label>
+        <input class="auth-input" id="regEmail" type="email" placeholder="kovacsistvan@example.com"/>
+      </div>
+      <div class="auth-field">
+        <label>Jelszó <small>(min. 6 karakter)</small></label>
+        <input class="auth-input" id="regPass" type="password" placeholder="••••••••"/>
+      </div>
+      <div class="auth-field">
+        <label>Jelszó megerősítése</label>
+        <input class="auth-input" id="regPass2" type="password" placeholder="••••••••"/>
+      </div>
+      <p class="auth-error" id="regError"></p>
+      <button class="auth-submit-btn" onclick="doRegister()">Fiók létrehozása 🌸</button>
+      <p class="auth-switch">Már van fiókod? <a onclick="switchAuthTab('login')">Jelentkezz be!</a></p>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     PROFILE MODAL
+══════════════════════════════════════ -->
+<div class="profile-modal-overlay" id="profileModal">
+  <div class="profile-modal">
+    <button class="auth-close" onclick="closeProfile()">✕</button>
+
+    <div class="profile-header">
+      <div class="profile-avatar-big" id="profileAvatarBig"></div>
+      <div>
+        <div class="profile-name" id="profileName"></div>
+        <div class="profile-email" id="profileEmail"></div>
+        <div class="profile-since" id="profileSince"></div>
+      </div>
+    </div>
+
+    <div class="profile-section-title">Rendeléseim</div>
+    <div class="order-history" id="orderHistory"></div>
+
+    <button class="logout-btn" onclick="doLogout()">Kijelentkezés</button>
+  </div>
+</div>
 
 <script src="script.js"></script>
 </body>
